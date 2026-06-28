@@ -21,7 +21,7 @@
 - [Quick Start](#-quick-start)
 - [What the Script Does (Detailed)](#-what-the-script-does-detailed)
 - [The GNOME Quick Settings Extension](#-the-gnome-quick-settings-extension)
-- [Verification](#verification)
+- [Verification](#-verification)
 - [Compatibility](#-compatibility)
 - [The Problem & Solution (Technical Deep-Dive)](#-the-problem--solution-technical-deep-dive)
 - [Uninstallation](#-uninstallation)
@@ -112,7 +112,7 @@ cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_status
 
 Hence, it is highly recommended after a reboot OR after closing Nvidia GPU appliation, wait for 5-10 seconds to flush any Nvidia related process or service before checking the status.
 
-For Additional Verification: See [Verification](#verification)
+For Additional Verification: See [Verification](#-verification)
 
 ---
 
