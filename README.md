@@ -95,15 +95,17 @@ sudo bash uninstall.sh
 
 That's it. One script to fix, one script to undo.
 
-Please Note: To check and verify if Nvidia is truly OFF (D3cold) use this: cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_status
+Please Note: To check and verify if Nvidia is truly OFF (D3cold) use this command:
+``` cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_status
+```
 - If the output is "suspended", then it's OFF.
-- It may be possible that you have opened any application using NVIDIA GPU or "Launch using Discrete Graphics Card" option, or System applciation like Resources for monitiring purposes or even nvidia-smi command itself. In such cases, it will show "active" state.
+- Possibly application using NVIDIA GPU or "Launch using Discrete Graphics Card" option, or System applications like Resources for monitiring purposes or even nvidia-smi command itself. In such cases, it will show "active" state.
 
-- You need to close any application running on NVIDIA GPU, before checking if the GPU is OFF. Any small process which triggers Nvidia GPU will instantly wake up and show status as "active". 
+- To check if the GPU is OFF. You need to close any application running on NVIDIA GPU. Any small process which triggers Nvidia GPU will instantly wake up and show status as "active".
 
 Hence, it is highly recommended after a reboot OR after closing Nvidia GPU appliation, wait for 5-10 seconds to flush any Nvidia related process or service before checking the status.
 
-For Additional Verification: See #Verification
+For Additional Verification: See ( #Verification )
 
 ---
 
