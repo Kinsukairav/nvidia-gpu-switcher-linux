@@ -98,7 +98,6 @@ That's it. One script to fix, one script to undo.
 Please Note: To check and verify if Nvidia is truly OFF (D3cold) use this command: 
 ```
 cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_status
-
 ```
 
 
