@@ -77,10 +77,6 @@ This repository provides a **single automated install script** that configures e
 
 ## 🚀 Quick Start (Installtion)
 
-<p align="center">
-  <img src="assets/screenshot.png" alt="GNOME Quick Settings GPU profile preview" />
-</p>
-
 ### Install
 
 ```bash
@@ -98,6 +94,10 @@ sudo bash uninstall.sh
 ```
 
 That's it. One script to fix, one script to undo.
+
+<p align="center">
+  <img src="assets/screenshot.png" alt="GNOME Quick Settings GPU profile preview" />
+</p>
 
 Please Note: To check and verify if Nvidia is truly OFF (D3cold) use this command: 
 ```
