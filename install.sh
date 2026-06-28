@@ -144,7 +144,7 @@ cat << METADATA_EOF > "$EXT_DIR/metadata.json"
   "name": "GPU Mode Switcher",
   "description": "Quick Settings tile for switching between Integrated, Hybrid (RTD3), and Dedicated NVIDIA GPU modes via EnvyControl.",
   "shell-version": [ "45", "46", "47", "48", "49", "50" ],
-  "url": "https://github.com/kinsukairav/nvidia-optimus-wayland-fix"
+  "url": "https://github.com/kinsukairav/nvidia-gpu-switcher-linux"
 }
 METADATA_EOF
 

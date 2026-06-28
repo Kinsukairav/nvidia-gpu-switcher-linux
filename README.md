@@ -84,8 +84,8 @@ This repository provides a **single automated install script** that configures e
 ### Install
 
 ```bash
-git clone https://github.com/kinsukairav/nvidia-optimus-wayland-fix.git
-cd nvidia-optimus-wayland-fix
+git clone https://github.com/kinsukairav/nvidia-gpu-switcher-linux.git
+cd nvidia-gpu-switcher-linux
 sudo bash install.sh
 ```
 
