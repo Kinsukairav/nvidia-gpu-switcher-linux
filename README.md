@@ -1,5 +1,5 @@
 <h1 align="center">⚡ NVIDIA Optimus Wayland Fix</h1>
-<h3 align="center">One-Stop Automated Fix for Intel + NVIDIA Hybrid GPU Power Drain on Linux Wayland</h3>
+<h3 align="center">One-Stop Automated Fix for Intel + NVIDIA Hybrid GPU or Optimus on Linux Wayland</h3>
 
 <p align="center">
   <a href="#-compatibility"><img src="https://img.shields.io/badge/OS-Ubuntu_26.04+-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu"/></a>
@@ -75,7 +75,7 @@ This repository provides a **single automated install script** that configures e
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Installtion)
 
 ### Install
 
@@ -94,6 +94,16 @@ sudo bash uninstall.sh
 ```
 
 That's it. One script to fix, one script to undo.
+
+Please Note: To check and verify if Nvidia is truly OFF (D3cold) use this: cat /sys/bus/pci/devices/0000:01:00.0/power/runtime_status
+- If the output is "suspended", then it's OFF.
+- It may be possible that you have opened any application using NVIDIA GPU or "Launch using Discrete Graphics Card" option, or System applciation like Resources for monitiring purposes or even nvidia-smi command itself. In such cases, it will show "active" state.
+
+- You need to close any application running on NVIDIA GPU, before checking if the GPU is OFF. Any small process which triggers Nvidia GPU will instantly wake up and show status as "active". 
+
+Hence, it is highly recommended after a reboot OR after closing Nvidia GPU appliation, wait for 5-10 seconds to flush any Nvidia related process or service before checking the status.
+
+For Additional Verification: See #Verification
 
 ---
 
@@ -159,11 +169,11 @@ The extension is installed **system-wide** at `/usr/share/gnome-shell/extensions
 ┌─────────────────────────────────────────────────────────────┐
 │  GNOME Quick Settings Panel                                 │
 │  ┌───────────────────────────────┐                          │
-│  │ 🖥️ GPU Profile  ▼            │ ← QuickMenuToggle tile   │
+│  │ 🖥️ GPU Profile  ▼            │ ← QuickMenuToggle tile    │
 │  ├───────────────────────────────┤                          │
-│  │ ✓ Hybrid Auto Mode           │ ← Current mode (check)   │
-│  │   Integrated GPU (iGPU)      │                          │
-│  │   NVIDIA Dedicated Mode      │                          │
+│  │ ✓ Hybrid Auto Mode           │ ← Current mode (check)    │
+│  │   Integrated GPU (iGPU)      │                           │
+│  │   NVIDIA Dedicated Mode      │                           │
 │  └───────────────────────────────┘                          │
 │         │                                                   │
 │         ▼ on click                                          │
