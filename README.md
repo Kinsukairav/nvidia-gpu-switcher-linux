@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="assets/banner.png" alt="NVIDIA Optimus Wayland Fix" width="720"/>
-</p>
-
 <h1 align="center">⚡ NVIDIA Optimus Wayland Fix</h1>
 <h3 align="center">One-Stop Automated Fix for Intel + NVIDIA Hybrid GPU Power Drain on Linux Wayland</h3>
 
@@ -110,7 +106,7 @@ That's it. One script to fix, one script to undo.
 The install script performs 7 steps, all modifying **standard Linux system files** (nothing vendor-specific):
 
 ### Step 1 — Install Dependencies
-Installs `wget`, `curl`, `zenity`, and `gnome-shell-extension-prefs` via apt.
+Installs `wget`, `curl`, and `zenity` via apt. No browser connectors or extension-manager packages — the GNOME extension is deployed directly to the system path.
 
 ### Step 2 — Install EnvyControl
 Downloads the latest `.deb` release from the [EnvyControl GitHub](https://github.com/bayasdev/envycontrol) and installs it. EnvyControl manages the `NVreg_DynamicPowerManagement=0x02` modprobe parameter and PCI runtime PM rules.
