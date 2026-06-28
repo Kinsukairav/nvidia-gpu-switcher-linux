@@ -1,0 +1,98 @@
+name: 🧪 Compatibility Report
+description: Report whether this fix worked on your hardware
+title: "[Compatibility]: "
+labels: ["compatibility", "testing"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help expand the compatibility matrix! Report your results below.
+
+  - type: input
+    id: laptop-model
+    attributes:
+      label: Laptop Model
+      placeholder: "ASUS TUF Gaming F15"
+    validations:
+      required: true
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: "Intel Core i7-11800H"
+    validations:
+      required: true
+
+  - type: input
+    id: gpu
+    attributes:
+      label: NVIDIA GPU
+      placeholder: "NVIDIA GeForce RTX 3060"
+    validations:
+      required: true
+
+  - type: input
+    id: nvidia-driver
+    attributes:
+      label: NVIDIA Driver Version
+      placeholder: "595.44"
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: OS & Version
+      placeholder: "Ubuntu 26.04 LTS"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: desktop
+    attributes:
+      label: Desktop Environment
+      options:
+        - GNOME (Wayland)
+        - GNOME (X11)
+        - KDE Plasma (Wayland)
+        - KDE Plasma (X11)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: power-result
+    attributes:
+      label: "GPU Power State Result"
+      options:
+        - ✅ GPU shows 'suspended' (0W sleep working)
+        - ⚠️ Partially working (explain below)
+        - ❌ GPU stays 'active'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: extension-result
+    attributes:
+      label: "GNOME Extension Result"
+      options:
+        - ✅ Quick Settings tile works perfectly
+        - ⚠️ Partially working
+        - ❌ Extension doesn't load
+        - ⏭️ Not using GNOME
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: "Any modifications needed, issues, or tips for similar hardware"
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification Output
+      description: "Paste the output of the verification commands from the README"
+      render: shell

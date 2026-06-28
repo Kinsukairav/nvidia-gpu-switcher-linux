@@ -1,0 +1,92 @@
+name: 🐛 Bug Report
+description: The install script or GPU fix didn't work as expected
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please fill in the details below.
+
+  - type: input
+    id: laptop-model
+    attributes:
+      label: Laptop Model
+      placeholder: "Lenovo LOQ 15IAX9"
+    validations:
+      required: true
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: "Intel Core i5-12450HX"
+    validations:
+      required: true
+
+  - type: input
+    id: gpu
+    attributes:
+      label: NVIDIA GPU
+      placeholder: "NVIDIA GeForce RTX 3050 6GB"
+    validations:
+      required: true
+
+  - type: input
+    id: nvidia-driver
+    attributes:
+      label: NVIDIA Driver Version
+      description: "Output of: nvidia-smi --query-gpu=driver_version --format=csv,noheader"
+      placeholder: "595.44"
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: OS & Version
+      placeholder: "Ubuntu 26.04 LTS"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: desktop
+    attributes:
+      label: Desktop Environment
+      options:
+        - GNOME (Wayland)
+        - GNOME (X11)
+        - KDE Plasma (Wayland)
+        - KDE Plasma (X11)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-area
+    attributes:
+      label: Which part has the issue?
+      options:
+        - install.sh script execution
+        - GPU not entering suspended state
+        - GNOME Quick Settings extension
+        - GPU mode switching (gpu-quick-switch.sh)
+        - uninstall.sh script execution
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: "What happened? Include steps to reproduce."
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs
+      description: "Paste terminal output, journalctl logs, or error messages"
+      render: shell
