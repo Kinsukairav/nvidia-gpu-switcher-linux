@@ -85,11 +85,7 @@ cd nvidia-gpu-switcher-linux
 sudo bash install.sh
 ```
 
-After reboot, enable the GNOME extension:
-
-```bash
-gnome-extensions enable gpu-control@global.profile
-```
+**That's it!** Reboot your laptop. The GNOME extension will automatically enable itself on your first login.
 
 ### Uninstall
 
@@ -369,10 +365,11 @@ The **core power fix** (Steps 1–5, 7) works on any desktop. The **Quick Settin
 <details>
 <summary><b>The extension doesn't show after install</b></summary>
 
-1. Make sure you rebooted after running `install.sh`
-2. Enable it: `gnome-extensions enable gpu-control@global.profile`
-3. If it still doesn't appear, log out and log back in (Wayland session refresh)
-4. Check for errors: `journalctl -b 0 /usr/bin/gnome-shell | grep gpu-control`
+1. Check that you rebooted after running `install.sh`
+2. Wait a few seconds after logging in (it enables automatically via autostart)
+3. If it still doesn't appear, try enabling manually: `gnome-extensions enable gpu-control@global.profile`
+4. Log out and log back in (Wayland session refresh)
+5. Check for errors: `journalctl -b 0 /usr/bin/gnome-shell | grep gpu-control`
 </details>
 
 ---

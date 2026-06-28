@@ -208,8 +208,35 @@ EXTJS_EOF
 # ---------------------------------------------------------------------------
 # 7. Set default mode to hybrid with RTD3
 # ---------------------------------------------------------------------------
-echo "[7/7] Configuring hybrid mode with RTD3 power management..."
+echo "[7/8] Configuring hybrid mode with RTD3 power management..."
 envycontrol -s hybrid --rtd3 || { echo "Warning: Hardware topology configuration returned an initialization anomaly." >&2; }
+
+# ---------------------------------------------------------------------------
+# 8. Schedule extension enablement on next login
+# ---------------------------------------------------------------------------
+echo "[8/8] Scheduling GNOME extension enablement on next login..."
+
+if [ -n "$SUDO_USER" ]; then
+    USER_HOME=$(eval echo "~$SUDO_USER")
+    AUTOSTART_DIR="$USER_HOME/.config/autostart"
+    AUTOSTART_FILE="$AUTOSTART_DIR/enable-gpu-switcher.desktop"
+    
+    mkdir -p "$AUTOSTART_DIR"
+    
+    cat << 'EOF' > "$AUTOSTART_FILE"
+[Desktop Entry]
+Type=Application
+Name=Enable GPU Switcher Extension
+Exec=bash -c "sleep 3 && gnome-extensions enable gpu-control@global.profile && rm -f ~/.config/autostart/enable-gpu-switcher.desktop"
+Hidden=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
+EOF
+
+    chown -R "$SUDO_USER:$SUDO_USER" "$AUTOSTART_DIR"
+else
+    echo "Warning: Could not determine user. You may need to manually enable the extension."
+fi
 
 echo ""
 echo "╔══════════════════════════════════════════════════════════════╗"
@@ -224,9 +251,7 @@ echo "║  ✅ GPU Mode Switcher extension deployed                   ║"
 echo "║                                                            ║"
 echo "║  Next steps:                                               ║"
 echo "║  1. Reboot your system                                     ║"
-echo "║  2. Enable the extension:                                  ║"
-echo "║     gnome-extensions enable gpu-control@global.profile     ║"
-echo "║  3. Verify GPU is suspended:                               ║"
+echo "║  2. Verify GPU is suspended:                               ║"
 echo "║     cat /sys/bus/pci/devices/0000:01:00.0/power/           ║"
 echo "║     runtime_status                                         ║"
 echo "║                                                            ║"
